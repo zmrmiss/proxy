@@ -1,0 +1,95 @@
+
+    <div class="page-header navbar navbar-fixed-top" ng-class="{activeMs:isActiveMs}">
+    <div class="col-md-12" ng-if="DonotTransferClick" style="height: 60px;background-color: #ffcccc;color: #f00;line-height: 16px;text-align: center;padding-top: 22px;">
+        因平台升级，原短信余量已默认转至模板短信余量中（页面左侧菜单：短信-模板短信），您可将模板短信中的一些短信转至群发短信余量中使用，此转移仅能操作一次，请知悉！感谢您的理解与支持！
+        <a href="#" style="color: #199ed8" ng-click="ImmediateTransfer()">立即转移</a>
+        <a href="" style="margin-left: 30px;color:#199ed8;" ng-click="DonotTransfer()">我已知晓，不做转移</a>
+        <a href="" style="float: right;line-height: 16px;width: 20px;color: #000;">
+            <i class="fa fa-close" ng-click="ClosingHints()"></i></a>
+    </div>
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner ">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="index.html">
+                <img src="../public/assets/layout/img/logo.png" alt="logo" class="logo-default" style="margin: 18px 0 0 20px;height: 32px;"/> </a>
+            <!--<img th:src="@{/assets/layout/img/logo.png}" alt="logo" class="logo-default" style="margin: 12px 0 0 20px;height: 24px;" /> </a>-->
+            <!--<div class="menu-toggler sidebar-toggler" style="margin-top: 28px;">-->
+                <!--<span></span>-->
+            <!--</div>-->
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span></span>
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu clearfix">
+            <ul class="nav navbar-nav pull-right">
+                <!--<li class="dropdown dropdown-user">-->
+                <!--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">-->
+                <!--<span class="username username-hide-on-mobile"> 文档 </span>-->
+                <!--<i class="fa fa-angle-down"></i>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu dropdown-menu-default">-->
+                <!--<li>-->
+                <!--<a href="http://www.crpaas.com/html/developer/api_docs/" target="_blank"> 接口文档 </a>-->
+                <!--</li>-->
+                <!--<li class="divider"> </li>-->
+                <!--<li>-->
+                <!--<a href="http://www.crpaas.com/html/developer/guide/" target="_blank"> 帮助文档 </a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+                <!-- BEGIN INBOX DROPDOWN -->
+
+                <!-- END INBOX DROPDOWN -->
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+
+                        <img alt="" ng-if="heardata.authz!=1  || heardata.authz_status!=1" class="img-circle" src="../public/assets/layout/img/personal.png" />
+                        <img alt="" ng-if="heardata.authz==1 && heardata.authz_status==1" class="img-circle" src="../public/assets/layout/img/business.png" />
+                        <span class="username username-hide-on-mobile" ng-bind="heardata.username"></span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <!--<li>-->
+                            <!--<a ui-sref="account.info">-->
+                                <!--<i class="icon-user"></i> 个人资料 </a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a ui-sref="customer.news" class="nav-link nav-toggle" href="#/customer/customer/news">-->
+                                <!--<i class="fa fa-calendar"></i>-->
+                                <!--<span class="title">消息日志</span>-->
+                            <!--</a>-->
+                            <!--&lt;!&ndash;<a ui-sref="system.ip">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<i class="icon-settings"></i> 系统设置 </a>&ndash;&gt;-->
+                        <!--</li>-->
+                        <li>
+                            <a href="#" ng-click="resetPw()">
+                                <i class="icon-key"></i> 修改密码 </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="#" ng-click="logout()">
+                                <i class="icon-logout"></i> 安全退出 </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<script>
+    $('#dropToggle').mouseenter(function () {
+        $('#dropToggle').addClass('open')
+    }).mouseleave(function () {
+        $('#dropToggle').removeClass('open')
+    })
+</script>

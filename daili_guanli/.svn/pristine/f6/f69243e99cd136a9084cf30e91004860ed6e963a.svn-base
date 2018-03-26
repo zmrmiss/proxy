@@ -1,0 +1,211 @@
+<div class="page-sidebar-wrapper">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar navbar-collapse collapse" ng-class="{activetop:isActiveTop}">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="false" data-slide-speed="200" style="padding-top: 40px">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <li class="sidebar-toggler-wrapper hide">
+                <div class="sidebar-toggler">
+                    <span></span>
+                </div>
+            </li>
+            <!-- END SIDEBAR TOGGLER BUTTON -->
+            <li class="nav-item">
+                <div class="nav-link nav-toggle">
+                    <span class="title"></span>
+                </div>
+            </li>
+            <!--<li class="nav-item">-->
+                <!--<a ui-sref="desktop" class="nav-link nav-toggle">-->
+                    <!--<i class="icon-home"></i>-->
+                    <!--<span class="title">管理控制台</span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <li class="heading">
+                <h3 class="uppercase">产品</h3>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-envelope"></i>
+                    <span class="title">客户管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <!--<li class="nav-item">-->
+                    <!--<a ui-sref="test" class="nav-link nav-toggle">-->
+                    <!--<i class="fa fa-comment-o"></i>-->
+                    <!--<span class="title">短信测试</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+
+
+                    <li class="nav-item">
+                        <a ui-sref="clients.customer" class="nav-link">
+                            <i class="fa fa-paper-plane-o"></i>
+                            <span class="title">我的客户</span>
+                        </a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                        <!--<a ui-sref="clients.sign" class="nav-link">-->
+                            <!--<i class="fa fa-comments-o"></i>-->
+                            <!--<span class="title">客户查询</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="nav-item">
+                        <a ui-sref="clients.sign" class="nav-link">
+                            <i class="fa fa-font"></i>
+                            <span class="title">客户签名管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a ui-sref="clients.template" class="nav-link">
+                            <i class="fa fa-plane"></i>
+                            <span class="title">客户模板管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--<li class="nav-item">-->
+                <!--<a href="javascript:;" class="nav-link nav-toggle">-->
+                    <!--<i class="fa fa-credit-card-alt"></i>-->
+                    <!--<span class="title">发送管理</span>-->
+                    <!--<span class="arrow"></span>-->
+                <!--</a>-->
+                <!--<ul class="sub-menu">-->
+                    <!--&lt;!&ndash;<li class="nav-item">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a ui-sref="test" class="nav-link nav-toggle">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<i class="fa fa-comment-o"></i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="title">短信测试</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--<li class="nav-item  ">-->
+                        <!--<a ui-sref="payment.account" class="nav-link nav-toggle">-->
+                            <!--<i class="fa fa-database"></i>-->
+                            <!--<span class="title">发送记录</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a ui-sref="orders.all" class="nav-link nav-toggle">-->
+                            <!--<i class="fa fa-file-text-o"></i>-->
+                            <!--<span class="title">发送统计</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+
+
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-credit-card-alt"></i>
+                    <span class="title">财务管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <!--<li class="nav-item">-->
+                    <!--<a ui-sref="test" class="nav-link nav-toggle">-->
+                    <!--<i class="fa fa-comment-o"></i>-->
+                    <!--<span class="title">短信测试</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <li class="nav-item  ">
+                        <a ui-sref="payment.account" class="nav-link nav-toggle">
+                            <i class="fa fa-database"></i>
+                            <span class="title">充值</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a ui-sref="orders.all" class="nav-link nav-toggle">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="title">订单</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a ui-sref="orders.bills" class="nav-link nav-toggle">
+                            <i class="fa fa-credit-card"></i>
+                            <span class="title">钱包明细</span>
+                        </a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                        <!--<a ui-sref="invoice.claim" class="nav-link nav-toggle">-->
+                            <!--<i class="fa fa-id-card-o"></i>-->
+                            <!--<span class="title">发票</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="nav-item">
+                        <a ui-sref="orders.distribution" class="nav-link nav-toggle">
+                            <i class="fa fa-pie-chart"></i>
+                            <span class="title">分配记录</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a ui-sref="orders.record" class="nav-link nav-toggle">
+                            <i class="fa fa-gg"></i>
+                            <span class="title">充值记录</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--<li class="nav-item  ">-->
+            <!--<a ui-sref="invoice.all" class="nav-link nav-toggle">-->
+            <!--<i class="fa fa-list-alt"></i>-->
+            <!--<span class="title">发票</span>-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li class="heading">-->
+                <!--<h3 class="uppercase">设置</h3>-->
+            <!--</li>-->
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-cog"></i>
+                    <!--<i class="fa fa-cog fa-spin"></i>-->
+                    <span class="title">设置</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a ui-sref="account.install" class="nav-link nav-toggle">
+                            <i class="fa fa-user"></i>
+                            <span class="title">系统设置</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a ui-sref="account.pwd" class="nav-link nav-toggle">
+                            <i class="fa fa-calendar"></i>
+                            <span class="title">个人设置</span>
+                        </a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                        <!--<a ui-sref="Export.export" href="#/Export/export" class="nav-link nav-toggle">-->
+                            <!--<i class="fa fa-upload"></i>-->
+                            <!--<span class="title">黑名单</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<li class="nav-item">-->
+            <!--<a ui-sref="logs" class="nav-link nav-toggle">-->
+            <!--<i class="fa fa-envelope-o"></i>-->
+            <!--<span class="title">操作日志</span>-->
+            <!--</a>-->
+            <!--</li>-->
+        </ul>
+        <!-- END SIDEBAR MENU -->
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>

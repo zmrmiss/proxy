@@ -1,0 +1,121 @@
+/**
+ * 个人资料
+ *
+ */
+angular.module('App').controller('DlAccountLogoCtrl', function($rootScope,$http, $scope, $ajax,FileUploader) {
+
+    $scope.currentTab = 'account.logo';
+
+    $scope.isActiveTab = function(url) {
+        return url == $scope.currentTab;
+    };
+    //
+    $scope.data = {};
+    $scope.sms_logo='';
+    $scope.load = function() {
+        $ajax.post('/api/setting/Logo/show/', $.param({}), function(result) {
+            $scope.data = result;
+            console.log(result)
+            if(result.other&&result.other.logo_switch==1){
+                $scope.hasSetOffLogo=true
+            }
+        })
+    };
+    $scope.load();
+    var formData = [];
+    $scope.uploader4 = new FileUploader({
+        url: '/api/upload/Logo/deliver/'+'?'+new Date().getTime(),
+        alias:'image_file',
+        formData: formData,
+        queueLimit: 2,
+        removeAfterUpload: true,
+        autoUpload:true
+    });
+    $scope.progress = {width: 0 };
+    $scope.uploader4.onProgressItem = function (item, process) {
+        $scope.progress.width = process + '%';
+
+        layer.msg('上传中......'+$scope.progress.width+'', {
+            icon: 16,
+            shade: 0.01,
+            time: 0
+        });
+    };
+
+    $scope.uploader4.onAfterAddingFile = function (item) {
+        layer.msg('上传中......', {
+            icon: 16,
+            shade: 0.01,
+            time: 0
+        });
+        if ($scope.uploader4.queue.length > 1) {
+            $scope.uploader4.removeFromQueue(0);
+        }
+        if (item._file.size > 10485760) {
+            layer.msg('最大支持10M的文件', {time: 1000, icon: 2});
+            return false;
+        }
+        getObjectURL(item._file, $('#LicenceImgLogo'));
+    };
+    $scope.uploader4.onBeforeUploadItem = function (item) {
+        var formData = [];
+        formData.push($scope.data);
+        Array.prototype.push.apply(item.formData, formData);
+    };
+
+    $scope.uploader4.onSuccessItem = function(item, response, status, headers) {
+        if (response.code == '10000000') {
+            $('#businessLicenceImg').attr('ng-src',response.data.origin);
+            $scope.sms_logo=response.data.origin;
+            layer.msg('图片上传成功', {icon: 1, time: 2000});
+        }else if(response.code == '40001007'){
+            layer.open({
+                title:"信息",
+                // content:'短信发送成功!&nbsp;共计<span class=\'font-red\'>' + $scope.mobileData.successCount + '</span>个号码,<span class=\'font-red\'>' + $scope.mobileData.successCount * $scope.count + '</span>条短信',
+                content:response.msg,
+                yes:function () {
+                    layer.closeAll();
+                }
+            });
+        } else {
+            layer.msg(response.msg, {time: 1000, icon: 2})
+        }
+        // formData.splice(0, formData.length);
+    };
+
+    function getObjectURL(file, imgObj) {
+        var url = null ;
+        if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        imgObj.attr('src', url);
+        return url ;
+    };
+
+
+    $scope.SetLogo = function() {
+        if($scope.hasSetOffLogo){
+            $scope.logo_switch=1;
+            if($scope.data.other.sms_title==''){
+                layer.msg('请上传站点Logo!',{icon:2,time:2000});
+                return false;
+            }
+        }else {
+            $scope.logo_switch=0
+        }
+        console.log($scope.data.other.sms_logo)
+        if($scope.sms_logo==''){
+            $scope.sms_logo= $scope.data.other.sms_logo
+        }
+        $ajax.post('/api/setting/Logo/edit/',$.param({
+            logo_switch:$scope.logo_switch,
+            sms_logo:$scope.sms_logo
+        }),function () {
+            layer.msg('保存成功', {time: 1500, icon: 1});
+        })
+    }
+});
